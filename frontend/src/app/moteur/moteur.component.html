@@ -1,11 +1,16 @@
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<div class="content" role="main">
-    <span>moteur works!</span> 
-    <br>
-    <input type="text" [(ngModel)]="titreFilter" placeholder="Filtrer par titre">
-    <input type="number" [(ngModel)]="priceFilter" placeholder="Filtrer par prix">
-    <button type="button" (click)="submit()" style="margin-left: 15px;" class="btn btn-primary">Submit</button>
-    <app-list-product [titreFilter]="titreFilter" [priceFilter]="priceFilter"></app-list-product>
+<div class="content" role="main" style="margin-left: 5%;margin-top: 3%;">
+    <div style="display: flex;">
+        <div class="col-md-2">
+            <label for="titreFilter">Titre</label>
+            <input class="form-control" id="titreFilter" type="text" [ngModel]="titreFilter" (ngModelChange)="onInputChangeTitre($event)" placeholder="Filtrer par titre">
+        </div>
+        <div class="col-md-2">
+            <label for="priceFilter">Prix maximum</label>
+            <input class="form-control" id="priceFilter" type="number" [ngModel]="priceFilter" (ngModelChange)="onInputChangePrice($event)" placeholder="Filtrer par prix max">
+        </div>
+    </div>
 </div>
+<app-list-product [titreFilter]="titreFilter" [priceFilter]="priceFilter"></app-list-product>

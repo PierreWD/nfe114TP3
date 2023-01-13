@@ -1,14 +1,42 @@
 [
-    {
-      "title": "linux",
-      "price": 10.5
-    },
-    {
-      "title": "window",
-      "price": 11
-    },
-    {
-      "title": "android",
-      "price": 20
-    }
-  ]
+  {
+    "title": "Tom Clancy’s The Division® 2",
+    "price": 9
+  },
+  {
+    "title": "Hogwarts Legacy : L'Héritage de Poudlard",
+    "price": 59.99
+  },
+  {
+    "title": "The Elder Scrolls® Online",
+    "price": 19.99
+  },
+  {
+    "title": "Aquatico",
+    "price": 22.49
+  },
+  {
+    "title": "IXION",
+    "price": 34.49
+  },
+  {
+    "title":"Warhammer 40,000: Mechanicus",
+    "price":29.99
+  }, 
+  {
+    "title":"Sid Meier’s Civilization® VI",
+    "price":5.99
+  },
+  {
+    "title":"Hearts of Iron IV",
+    "price":39.99
+  },
+  {
+    "title":"Crusader Kings III",
+    "price":49.99
+  },
+  {
+    "title":"Mount & Blade II: Bannerlord",
+    "price":49.90
+  }
+]
