@@ -1,0 +1,14 @@
+[
+    {
+      "title": "linux",
+      "price": 10.5
+    },
+    {
+      "title": "window",
+      "price": 11
+    },
+    {
+      "title": "android",
+      "price": 20
+    }
+  ]
