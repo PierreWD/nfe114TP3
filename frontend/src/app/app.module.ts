@@ -7,18 +7,22 @@ import { ListProductComponent } from './list-product/list-product.component';
 import { MoteurComponent } from './moteur/moteur.component';
 import { HttpClientModule} from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormulaireComponent } from './formulaire/formulaire.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListProductComponent,
-    MoteurComponent
+    MoteurComponent,
+    FormulaireComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

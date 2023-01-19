@@ -1,6 +1,6 @@
 import { Component, OnInit,ViewChild  } from '@angular/core';
 import {ListProductComponent} from '../list-product/list-product.component'
-import { Catalogue } from '../_Classe/Catalogue';
+//import { Catalogue } from '../_Classe/Catalogue';
 
 @Component({
   selector: 'app-moteur',

@@ -8,13 +8,12 @@ import { Catalogue } from '../_Classe/Catalogue';
   styleUrls: ['./list-product.component.css']
 })
 export class ListProductComponent implements OnInit {
-  @Input() titreFilter:string;
-  @Input() priceFilter:Number | undefined;
+  //@Input() titreFilter:string;
+  //@Input() priceFilter:Number | undefined;
   
   catalogue:Catalogue[]=[];
   catalogueDisplayed:Catalogue[]=[];
-  constructor(private httpService: HttpServiceService) {
-    this.titreFilter="";    
+  constructor(private httpService: HttpServiceService) {    
   }
   title = 'TP3';
 
@@ -42,5 +41,4 @@ export class ListProductComponent implements OnInit {
       }
     })
   }
-
 }
