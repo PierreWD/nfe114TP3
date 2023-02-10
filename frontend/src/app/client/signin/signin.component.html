@@ -1,0 +1,14 @@
+<form [formGroup]="FormIdentification" (ngSubmit)="submit()" >
+    <div class="form-group" style="display: flex;">
+        <div class="col-md-4">
+            <label for="Login">Login</label>
+            <input type="text" formControlName="Login" class="form-control" id="Login" placeholder="Login">
+        </div>
+        <div class="col-md-4">
+            <label for="psw">Password</label>
+            <input type="password" formControlName="Password" class="form-control" id="psw" placeholder="Password">
+        </div>
+    </div> 
+    <button type="submit" style="margin-left: 15px;" class="btn btn-primary">Submit</button>
+</form>
+<a class="nav-item nav-link" [routerLink]="['/client/signup']">Signup</a>

@@ -1,5 +1,6 @@
 import { Component, OnInit,ViewChild  } from '@angular/core';
 import {ListProductComponent} from '../list-product/list-product.component'
+import { LogServiceService } from '../_Services/log-service.service';
 //import { Catalogue } from '../_Classe/Catalogue';
 
 @Component({
@@ -10,11 +11,12 @@ import {ListProductComponent} from '../list-product/list-product.component'
 export class MoteurComponent implements OnInit {
 
   @ViewChild(ListProductComponent) ListProduct: ListProductComponent | undefined;
-  constructor() { }
+  constructor(public logServiceService:LogServiceService) { }
   titreFilter:string="";
   priceFilter:number | undefined;
 
   ngOnInit(): void {
+    console.log(this.logServiceService.CurrentLog)
   }
 
   onInputChangeTitre(value:any){

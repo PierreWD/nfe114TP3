@@ -2,8 +2,13 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-  <div class="content" role="main">
-    <h2>{{ title }} app is running!</h2>
-  </div>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:  #397fcf;margin-bottom: 30px;">
+    <a class="navbar-brand" href="home">Navbar</a>    
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="/moteur">Catalogue </a>
+      <a class="nav-item nav-link" [routerLink]="['/client/signin']">Signin</a>
+      <a class="nav-item nav-link" [routerLink]="['/client/compte']">Compte</a>
+    </div>
+  </nav>  
+  <router-outlet></router-outlet>
 </body>
-<app-moteur></app-moteur>

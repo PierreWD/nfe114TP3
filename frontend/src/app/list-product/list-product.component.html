@@ -1,6 +1,6 @@
 <div class="panel-body" style="margin: 5%;margin-top: 0;">
   <ul class="list-group scrollbar-primary" style="margin-top: 3%;overflow-y:scroll;max-height: 600px;width: 100%;overflow:scroll">
-    <li class="list-group-item" *ngFor="let cata of catalogueDisplayed">
+    <li class="list-group-item" *ngFor="let cata of catalogueDisplayed" [routerLink]="['/article',cata.title]" style="cursor: pointer;">
       <div>
         <span>{{cata.title}}</span>
         <br>

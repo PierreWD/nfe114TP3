@@ -1,5 +1,5 @@
 import { Component, Input, OnInit  } from '@angular/core';
-import {HttpServiceService} from '../http-service.service'
+import {HttpServiceService} from '../_Services/http-service.service'
 import { Catalogue } from '../_Classe/Catalogue';
 
 @Component({

@@ -1,0 +1,14 @@
+[
+    {
+      "login": "login",
+      "mdp": "password",
+      "Nom":"Jean",
+      "Prenom":"Martin"
+    },
+    {
+        "login": "log",
+        "mdp": "pwd",
+        "Nom":"Cassandra",
+        "Prenom":"Diaz"
+    }
+  ]
