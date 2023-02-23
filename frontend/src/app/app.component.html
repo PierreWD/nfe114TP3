@@ -5,9 +5,9 @@
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color:  #397fcf;margin-bottom: 30px;">
     <a class="navbar-brand" href="home">Navbar</a>    
     <div class="navbar-nav">
-      <a class="nav-item nav-link" [routerLink]="['/store/moteur']">Catalogue </a>
-      <a class="nav-item nav-link" [routerLink]="['/store/panier']">Panier </a>
-      <a class="nav-item nav-link" [routerLink]="['/client/signin']">Signin</a>
+      <a class="nav-item nav-link" [routerLink]="['/client/store/moteur']">Catalogue</a>
+      <a class="nav-item nav-link" [routerLink]="['/client/store/panier']">Panier</a>
+      <a *ngIf="client.Nom=='' " class="nav-item nav-link" [routerLink]="['/client/signin']">Signin</a>
       <a class="nav-item nav-link" [routerLink]="['/client/compte']">Compte</a>
     </div>
   </nav>  

@@ -12,7 +12,7 @@ import { ArticleState } from './_Classe/Catalogue.state';
 
 const appRoutes: Routes = [
   { path: 'client',loadChildren: () => import('./client/client.module').then(m => m.ClientModule) },
-  { path: 'store',loadChildren: () => import('./store/store.module').then(m => m.StoreModule) }
+  //{ path: 'store',loadChildren: () => import('./store/store.module').then(m => m.StoreModule) }
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { AddArticle } from "./Catalogue.action";
+import { AddArticle,DeleteArticle } from "./Catalogue.action";
 import { Catalogue } from "./Catalogue";
 import { State,Action,Selector,StateContext } from '@ngxs/store';
 import { Injectable } from '@angular/core';
@@ -29,5 +29,24 @@ export class ArticleState {
             panier: [...state.panier, payload]
         });
     }   
+
+    @Action(DeleteArticle)
+        delete({getState, patchState }:
+    StateContext<StateArticle>, { payload }: DeleteArticle) {    
+        const state = getState();
+        patchState({
+            panier: this.removeDocument(payload,state.panier)
+        });
+    }  
+
+    removeDocument(art:Catalogue,state:Catalogue[]){
+        state.forEach((a,index) => {
+            if(a.title == art.title)
+            {
+                state.splice(index,1);
+            }
+        });
+        return state
+    }    
 }
 

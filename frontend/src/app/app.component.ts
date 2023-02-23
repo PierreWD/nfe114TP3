@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {HttpServiceService} from './_Services/http-service.service'
-import { Catalogue } from './_Classe/Catalogue';
+import { LogServiceService } from './_Services/log-service.service';
+import { Client } from './_Classe/Client';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,11 @@ import { Catalogue } from './_Classe/Catalogue';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private httpService: HttpServiceService) { }
-  title = 'TP3';
+  
+  client:Client;
+  constructor(private httpService: HttpServiceService,public logServiceService:LogServiceService) { 
+    this.client=this.logServiceService.getCurrentClient();
+  }
 
   ngOnInit() {
 

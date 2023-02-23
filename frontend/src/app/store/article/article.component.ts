@@ -30,7 +30,7 @@ export class ArticleComponent implements OnInit {
   addPanier(){
     console.log(this.catalogue)
     this.store.dispatch(new AddArticle(this.catalogue));
-    alert("article ajouté au panier")
+    alert("article ajouté au panier");
   }
 
 }

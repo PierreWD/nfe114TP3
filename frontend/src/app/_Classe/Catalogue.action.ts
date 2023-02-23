@@ -5,3 +5,9 @@ export class AddArticle {
     
     constructor(public payload: Catalogue) {}
 }
+
+export class DeleteArticle {
+    static readonly type = '[Catalogue] Delete article';
+    
+    constructor(public payload: Catalogue) {}
+}

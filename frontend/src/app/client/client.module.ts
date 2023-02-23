@@ -11,6 +11,7 @@ const childRoutes: Routes = [
   { path: 'signup', component: FormulaireComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'compte', component: CompteComponent },
+  { path: 'store',loadChildren: () => import('../store/store.module').then(m => m.StoreModule) }
 ];
 
 
