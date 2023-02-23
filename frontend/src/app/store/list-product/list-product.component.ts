@@ -1,20 +1,18 @@
 import { Component, Input, OnInit  } from '@angular/core';
-import {HttpServiceService} from '../_Services/http-service.service'
-import { Catalogue } from '../_Classe/Catalogue';
+import {HttpServiceService} from '../../_Services/http-service.service'
+import { Catalogue } from '../../_Classe/Catalogue';
+import { Store } from '@ngxs/store';
+import { AddArticle } from '../../_Classe/Catalogue.action';
 
 @Component({
   selector: 'app-list-product',
   templateUrl: './list-product.component.html',
   styleUrls: ['./list-product.component.css']
 })
-export class ListProductComponent implements OnInit {
-  //@Input() titreFilter:string;
-  //@Input() priceFilter:Number | undefined;
-  
+export class ListProductComponent implements OnInit {  
   catalogue:Catalogue[]=[];
   catalogueDisplayed:Catalogue[]=[];
-  constructor(private httpService: HttpServiceService) {    
-  }
+  constructor(private httpService: HttpServiceService,private store: Store) {}
   title = 'TP3';
 
   ngOnInit() {
@@ -40,5 +38,11 @@ export class ListProductComponent implements OnInit {
         }        
       }
     })
+  }
+
+  addPanier(art:Catalogue){
+    console.log(art)
+    this.store.dispatch(new AddArticle(art));
+    alert("article ajouté au panier")
   }
 }

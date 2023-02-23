@@ -1,6 +1,6 @@
 import { Component, OnInit,ViewChild  } from '@angular/core';
 import {ListProductComponent} from '../list-product/list-product.component'
-import { LogServiceService } from '../_Services/log-service.service';
+import { LogServiceService } from '../../_Services/log-service.service';
 //import { Catalogue } from '../_Classe/Catalogue';
 
 @Component({
