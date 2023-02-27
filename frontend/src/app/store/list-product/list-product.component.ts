@@ -3,6 +3,7 @@ import {HttpServiceService} from '../../_Services/http-service.service'
 import { Catalogue } from '../../_Classe/Catalogue';
 import { Store } from '@ngxs/store';
 import { AddArticle } from '../../_Classe/Catalogue.action';
+import { LogServiceService } from '../../_Services/log-service.service';
 
 @Component({
   selector: 'app-list-product',
@@ -12,7 +13,7 @@ import { AddArticle } from '../../_Classe/Catalogue.action';
 export class ListProductComponent implements OnInit {  
   catalogue:Catalogue[]=[];
   catalogueDisplayed:Catalogue[]=[];
-  constructor(private httpService: HttpServiceService,private store: Store) {}
+  constructor(private httpService: HttpServiceService,private store: Store,public logServiceService:LogServiceService) {}
   title = 'TP3';
 
   ngOnInit() {
@@ -42,7 +43,21 @@ export class ListProductComponent implements OnInit {
 
   addPanier(art:Catalogue){
     console.log(art)
-    this.store.dispatch(new AddArticle(art));
-    alert("article ajouté au panier")
+    var present=false;
+    this.store.select(state => state.panier.panier).subscribe(arti =>{
+      var panier=arti as Catalogue[];
+      panier.forEach(a => {
+        if(a.title==art.title){
+          present=true;
+        }
+      });      
+    });
+    if(present){
+      alert("article déjà présent dans le panier");
+    }else{
+      this.store.dispatch(new AddArticle(art));
+      this.logServiceService.addArticle();
+      alert("article ajouté au panier");
+    }
   }
 }

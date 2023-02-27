@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {HttpServiceService} from './_Services/http-service.service'
 import { LogServiceService } from './_Services/log-service.service';
 import { Client } from './_Classe/Client';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +11,12 @@ import { Client } from './_Classe/Client';
 export class AppComponent {
   
   client:Client;
-  constructor(private httpService: HttpServiceService,public logServiceService:LogServiceService) { 
-    this.client=this.logServiceService.getCurrentClient();
+
+  constructor(public logServiceService:LogServiceService,private store: Store) { 
+    this.client=this.logServiceService.getCurrentClient();    
   }
 
   ngOnInit() {
-
   }
 
 }

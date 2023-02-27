@@ -6,7 +6,7 @@
     <a class="navbar-brand" href="home">Navbar</a>    
     <div class="navbar-nav">
       <a class="nav-item nav-link" [routerLink]="['/client/store/moteur']">Catalogue</a>
-      <a class="nav-item nav-link" [routerLink]="['/client/store/panier']">Panier</a>
+      <a class="nav-item nav-link" [routerLink]="['/client/store/panier']"><span style="font-weight: bold;">{{logServiceService.PanierSize}}</span> Panier</a>
       <a *ngIf="client.Nom=='' " class="nav-item nav-link" [routerLink]="['/client/signin']">Signin</a>
       <a class="nav-item nav-link" [routerLink]="['/client/compte']">Compte</a>
     </div>

@@ -4,6 +4,7 @@ import {ActivatedRoute } from '@angular/router';
 import { HttpServiceService } from '../../_Services/http-service.service';
 import { Store } from '@ngxs/store';
 import { AddArticle } from 'src/app/_Classe/Catalogue.action';
+import { LogServiceService } from '../../_Services/log-service.service';
 
 @Component({
   selector: 'app-article',
@@ -13,7 +14,7 @@ import { AddArticle } from 'src/app/_Classe/Catalogue.action';
 export class ArticleComponent implements OnInit {
   catalogue:Catalogue=new Catalogue("",0);
 
-  constructor(private route: ActivatedRoute,private httpService: HttpServiceService,private store: Store) {
+  constructor(private route: ActivatedRoute,private httpService: HttpServiceService,private store: Store,public logServiceService:LogServiceService) {
     this.catalogue.title= this.route.snapshot.params.titre;
     this.httpService.getData().then((data:any)=>{
       data.map((d:any)=>{
@@ -29,8 +30,22 @@ export class ArticleComponent implements OnInit {
 
   addPanier(){
     console.log(this.catalogue)
-    this.store.dispatch(new AddArticle(this.catalogue));
-    alert("article ajouté au panier");
+    var present=false;
+    this.store.select(state => state.panier.panier).subscribe(arti =>{
+      var panier=arti as Catalogue[];
+      panier.forEach(a => {
+        if(a.title==this.catalogue.title){
+          present=true;
+        }
+      });      
+    });
+    if(present){
+      alert("article déjà présent dans le panier");
+    }else{
+      this.store.dispatch(new AddArticle(this.catalogue));
+      this.logServiceService.addArticle();
+      alert("article ajouté au panier");
+    }
   }
 
 }

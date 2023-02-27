@@ -7,8 +7,10 @@ import { Client } from '../_Classe/Client';
 export class LogServiceService {
   
   CurrentLog:Client;
+  PanierSize:number;
   constructor() { 
     this.CurrentLog=new Client("","","","");
+    this.PanierSize=0;
   }
 
   setCurrentClient(login:String,mdp:String,Nom:String,Prenom:String){
@@ -24,5 +26,13 @@ export class LogServiceService {
 
   ClearCurrentLog(){
     this.CurrentLog==new Client("","","","");
+  }
+
+  addArticle(){
+    this.PanierSize=this.PanierSize+1;
+  }
+
+  rmArticle(){
+    this.PanierSize=this.PanierSize-1;
   }
 }
