@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup,FormBuilder,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpServiceService } from '../../_Services/http-service.service';
-import { LogServiceService }from '../../_Services/log-service.service'
+import { LogServiceService }from '../../_Services/log-service.service';
+import { Api_httpInterceptor } from '../../_Classe/Api_httpInterceptor';
 
 @Component({
   selector: 'app-signin',
@@ -20,6 +21,16 @@ export class SigninComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  login(){
+    this.httpService.login(this.FormIdentification.value.Login,this.FormIdentification.value.Password).subscribe(
+      data=>{
+        console.log(data);
+        this.logServiceService.setCurrentClient(this.FormIdentification.value.Login,this.FormIdentification.value.Password,data.nom,data.prenom);
+        Api_httpInterceptor.jwtToken=data.jwt;
+      }
+    )
   }
 
   submit () {
